@@ -1,0 +1,1 @@
+Sebelum mencari atau membaca file kode secara langsung, SELALU periksa graphify-out/GRAPH_REPORT.md atau gunakan query graphify untuk menemukan relasi antar-fungsi dan lokasi file yang relevan.
