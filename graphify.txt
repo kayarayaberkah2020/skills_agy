@@ -1,0 +1,46 @@
+
+Pasang Integrasi di Proyek Anda
+
+Buka proyek Anda di Antigravity IDE atau Antigravity CLI (agy), buka terminal bawaan di direktori root proyek, lalu jalankan perintah berikut
+
+pip install --upgrade graphifyy
+graphify antigravity install
+
+Perintah tersebut membuat dua berkas konfigurasi otomatis di dalam folder .agents/ :
+
+• .agents/workflows/graphify.md: Mendaftarkan slash command /graphify agar muncul di menu perintah Antigravity.
+• .agents/rules/graphify.md: Menambahkan aturan tetap (rule) supaya setiap agen selalu membaca peta knowledge graph terlebih dahulu sebelum menelusuri berkas proyek Anda
+
+
+Bangun Knowledge Graph
+
+Buka panel chat atau kotak prompt agen Antigravity, lalu ketik
+
+/graphify .
+
+Agen akan memindai seluruh folder proyek saat ini (tanda titik . berarti direktori aktif), mengurai struktur kode secara lokal, mengekstrak konsep dari dokumen atau gambar, lalu menyimpannya ke dalam folder graphify-out/. Jika hanya ingin memetakan folder tertentu, ganti tanda titik dengan nama foldernya (misalnya /graphify src/api).
+
+
+
+Gunakan Sehari-hari & Perbarui Grafik
+
+• Bertanya ke agen seperti biasa: Anda tidak perlu mengetik perintah khusus lagi saat mengobrol. Cukup ajukan pertanyaan seperti "Bagaimana alur autentikasi di proyek ini?" 
+atau "File mana saja yang terdampak jika fungsi pembayaran diubah?"—agen otomatis mengkueri graphify-out/graph.json
+
+Cek visualisasi & ringkasan: Buka graphify-out/graph.html di peramban untuk melihat peta interaktif proyek Anda, atau baca graphify-out/GRAPH_REPORT.md untuk ringkasan modul utamanya
+
+Jika menu /graphify belum muncul setelah instalasi, muat ulang (reload) jendela Antigravity IDE atau mulai ulang sesi CLI Anda. 
+Anda bisa melihat detail penggunaan slash command lainnya di Dokumentasi Google Antigravity atau panduan lengkap perintah CLI di GitHub Graphify
+
+egunaan utama Graphify adalah mengubah seluruh isi proyek atau repositori Anda menjadi satu peta relasi terstruktur (knowledge graph), sehingga agen AI seperti Google Antigravity bisa memahami struktur kode Anda secara instan tanpa harus membaca ulang ribuan berkas setiap kali bertanya.
+
+Kegunaan Utama Graphify
+
+• Menghemat penggunaan token & biaya AI: Agen cukup mengkueri peta kecil di graphify-out/ alih-alih membaca seluruh isi berkas proyek berulang-ulang di setiap sesi baru.
+• Mempercepat jawaban agen & mencegah halusinasi: Agen langsung mengetahui hubungan antar-fungsi, kelas, API, maupun dependensi lintas berkas secara akurat (deterministic), bukan menebak-nebak lewat pencarian teks biasa.
+• Memetakan dampak perubahan kode (impact analysis): Membantu Anda dan agen melacak fungsi atau modul mana saja yang akan ikut terdampak sebelum Anda mengubah atau menghapus suatu bagian kode.
+• Menyatukan kode dan dokumen non-kode: Tidak hanya mengurai kode program (sekitar 40 bahasa pemrograman), Graphify juga mengekstrak informasi dari PDF, dokumen Markdown, gambar diagram, hingga rekaman audio/video ke dalam satu grafik yang saling terhubung.
+• Mempermudah pemahaman proyek baru (codebase onboarding): Menghasilkan peta visual interaktif (graph.html) serta ringkasan modul inti (GRAPH_REPORT.md) agar Anda cepat memahami arsitektur proyek besar atau kode warisan (legacy code).
+Singkatnya, Graphify bertindak seperti "peta jalan" permanen bagi agen AI Anda—daripada agen tersesat dan membuka setiap pintu folder satu per satu setiap hari, agen cukup melihat peta untuk langsung menuju bagian kode yang tepat.
+
+
